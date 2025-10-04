@@ -1,0 +1,14 @@
+.search-bar {
+    margin-bottom: 40px;
+    animation: slideIn 1s ease-in-out;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}

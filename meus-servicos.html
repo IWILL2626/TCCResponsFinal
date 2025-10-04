@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Will - Meus Serviços</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/meus-servicos.css"> 
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/icon.png" alt="Ícone I Will" class="logo-to-toggle">
+            <span>I Will</span>
+        </div>
+        <nav>
+            <button class="btn btn-secondary" onclick="window.location.href='vendas.html'">
+                <i class="fas fa-arrow-left"></i> Voltar para Vendas
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Meus Serviços Publicados</h1>
+            <p>Aqui você pode editar ou excluir os serviços que cadastrou.</p>
+        </section>
+
+        <section class="search-section-simple">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="myServicesSearchInput" placeholder="Pesquisar em meus serviços...">
+            </div>
+        </section>
+        
+        <section class="my-products-section">
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p>Carregando seus serviços...</p>
+            </div>
+            
+            <div class="product-grid" id="productGrid">
+                </div>
+        </section>
+    </main>
+
+    <div id="editModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+            <h2>Editar Serviço</h2>
+            <form id="editForm">
+                <input type="hidden" id="editProductId">
+                <div class="input-group">
+                    <label for="editProductName">Eu vou...</label>
+                    <input type="text" id="editProductName" class="input-field" required>
+                </div>
+                <div class="input-group">
+                    <label for="editPrice">Preço (R$)</label>
+                    <input type="number" id="editPrice" class="input-field" step="0.01" min="0" required>
+                </div>
+                <div class="input-group">
+                    <label for="editDeliveryTime">Tempo de Entrega</label>
+                    <input type="text" id="editDeliveryTime" class="input-field" required>
+                </div>
+                <div class="input-group">
+                    <label for="editDescription">Descrição do Serviço</label>
+                    <textarea id="editDescription" class="input-field" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary save-btn">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="toast-container"></div>
+    <div id="loading" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <script src="javascript/utils.js"></script>
+    <script src="javascript/dark-mode-global.js"></script>
+    <script src="javascript/meus-servicos.js"></script>
+</body>
+</html>

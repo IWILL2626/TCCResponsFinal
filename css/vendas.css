@@ -1,0 +1,726 @@
+:root {
+    --primary-color: #a00;
+    --primary-dark: #800;
+    --primary-light: #ffebee;
+    --text-color: #333;
+    --text-light: #666;
+    --white: #fff;
+    --light-gray: #f5f5f5;
+    --medium-gray: #ddd;
+    --dark-gray: #444;
+    --star-color: #ffb700;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    /* Variáveis padronizadas para o tema */
+    --background-color: #f9f9f9;
+    --surface-color: #fff;
+    --border-color: #eee;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--surface-color);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.02);
+}
+
+.logo img {
+    width: 2.8rem;
+    transition: transform 0.5s ease;
+}
+
+.logo:hover img {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.logo span {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Botões do Header */
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(160, 0, 0, 0.2);
+}
+
+.btn-secondary:hover {
+    background-color: var(--medium-gray);
+    transform: translateY(-2px);
+}
+
+.btn i {
+    font-size: 1rem;
+}
+
+/* Main Content */
+main {
+    padding-top: 2rem;
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, rgba(160,0,0,0.8), rgba(128,0,0,0.9)), 
+                url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 4rem 5%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Search Section */
+.search-section {
+    padding: 0 5% 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-bar {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 1px solid var(--medium-gray);
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(160,0,0,0.1);
+}
+
+.filter-options {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-options select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--medium-gray);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-options select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Products Section */
+.products-section {
+    padding: 0 5% 4rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    color: var(--text-light);
+    width: 100%;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--primary-light);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: var(--surface-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    animation: fadeInUp 0.5s ease-out;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-container {
+    width: 100%;
+    padding-top: 62.5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-price {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.product-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.product-seller {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.product-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--light-gray);
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.product-rating .fa-star.filled {
+    color: var(--star-color);
+}
+
+.product-rating-none {
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Modal de Produto */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 2000;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-product-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.modal-product-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.modal-product-price {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.modal-product-description {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.modal-seller-info {
+    border-top: 1px solid var(--light-gray);
+    padding-top: 1.5rem;
+}
+
+.modal-seller-info h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.seller-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-light);
+}
+
+.seller-detail i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.seller-detail span {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--light-gray);
+    color: var(--text-light);
+    padding: 4rem 5% 2rem;
+    border-top: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.footer-logo-img {
+    width: 2.5rem;
+    height: auto;
+}
+
+.footer-logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-link {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-link:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    opacity: 0.8;
+}
+
+/* ================================================= */
+/* ============= RESPONSIVE DESIGN ================= */
+/* ================================================= */
+
+/* Ícone do menu hambúrguer (inicialmente oculto em telas grandes) */
+.mobile-menu-icon {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+/* Navegação mobile (inicialmente oculta em telas grandes) */
+/* VERSÃO CORRIGIDA */
+.mobile-nav {
+    display: flex; /* CORREÇÃO AQUI */
+    flex-direction: column;
+    gap: 0.5rem;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    padding: 6rem 2rem 2rem;
+    background-color: var(--surface-color);
+    box-shadow: 4px 0px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    transition: left 0.4s ease-in-out;
+}
+
+.mobile-nav.open {
+    left: 0; /* Entra na tela */
+}
+
+.mobile-nav .btn, .mobile-nav a, .mobile-nav button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    justify-content: flex-start;
+}
+
+.mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-link:hover {
+    background-color: var(--light-gray);
+}
+
+.mobile-nav-divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 1rem 0;
+}
+
+#darkModeToggleMobile {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Media Query para Tablets e Celulares (até 992px) */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none; /* Esconde a navegação principal de desktop */
+    }
+    .mobile-menu-icon {
+        display: block; /* Mostra o ícone do hambúrguer */
+    }
+}
+
+/* Media Query para Celulares (até 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 4%;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .filter-options {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Uma coluna para produtos */
+        gap: 1.5rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+}
+
+/* ================================================= */
+/* ========= ESTILOS BOTÃO DE LIKE (CURTIDA) ======= */
+/* ================================================= */
+
+.like-btn {
+    background-color: var(--light-gray);
+    color: var(--text-light);
+    border: none;
+    border-radius: 50%; /* Deixa o botão redondo */
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.like-btn:hover {
+    background-color: var(--primary-light);
+    transform: scale(1.1);
+}
+
+/* Estilo para quando o coração está 'curtido' */
+.like-btn.liked {
+    color: var(--primary-color); /* Coração vermelho */
+}
+
+/* Efeito sutil de pulsação ao curtir */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.like-btn.liked {
+    animation: pulse 0.3s ease-out;
+}
+
+/* Botão de Like dentro do Modal (pode ser maior) */
+.like-btn-modal {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}

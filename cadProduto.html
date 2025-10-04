@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Will - Cadastro de Produtos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/cadProduto.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/icon.png" alt="Ícone I Will" class="logo-to-toggle">
+        </div>
+        <nav>
+            <button class="btn" onclick="window.location.href='vendas.html'">Voltar</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-section">
+            <h3>Cadastro do Serviço</h3>
+            
+            <div class="input-group">
+                <label for="productName">Eu vou...</label>
+                <input type="text" id="productName" class="input-field" placeholder="Descreva o serviço que você irá fazer" required>
+            </div>
+            <div class="input-group">
+                <label for="sellerName">Seu Nome (Vendedor)</label>
+                <input type="text" id="sellerName" class="input-field" placeholder="Digite seu nome ou apelido" required>
+            </div>
+            <div class="input-group">
+                <label for="deliveryTime">Tempo de Entrega</label>
+                <input type="text" id="deliveryTime" class="input-field" placeholder="Ex: 3 dias, 1 semana" required>
+            </div>
+            <div class="input-group">
+                <label for="price">Preço (R$)</label>
+                <input type="number" id="price" class="input-field" placeholder="Insira o preço do serviço" step="0.01" min="0" required>
+            </div>
+            <div class="input-group">
+                <label for="categorySelect">Categoria do Serviço</label>
+                <select id="categorySelect" class="input-field" required>
+                    <option value="" disabled selected>Selecione uma categoria</option>
+                    <option value="design">Design Gráfico</option>
+                    <option value="programacao">Programação & Tech</option>
+                    <option value="marketing">Marketing Digital</option>
+                    <option value="video">Edição de Vídeo</option>
+                    <option value="redacao">Redação & Tradução</option>
+                    <option value="outros">Outra...</option>
+                </select>
+            </div>
+            <div class="input-group custom-category-group" style="display: none;">
+                <label for="customCategory">Qual categoria?</label>
+                <input type="text" id="customCategory" class="input-field" placeholder="Digite o nome da nova categoria">
+            </div>
+            <div class="input-group">
+                <label>Imagem do Serviço</label>
+                <input type="file" id="imageUpload" class="file-input" accept="image/png, image/jpeg, image/gif">
+                <label for="imageUpload" class="btn-upload">Escolher Arquivo</label>
+            </div>
+            <div class="image-preview-container">
+                <img id="imagePreview" src="#" alt="Prévia da Imagem" class="image-preview" style="display: none;">
+            </div>
+            <div class="input-group">
+                <label for="description">Descrição do Serviço</label>
+                <textarea id="description" class="input-field" rows="4" placeholder="Insira uma descrição detalhada do serviço" required></textarea>
+            </div>
+            <input type="hidden" id="sellerId">
+            <button class="publish-btn" id="publishBtn" disabled>Publicar</button>
+        </div>
+    </main>
+
+    <div id="toast-container"></div>
+    <div id="loading" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <script src="javascript/utils.js"></script>
+    <script src="javascript/cadProduto.js"></script>
+    <script src="javascript/dark-mode-global.js"></script>
+</body>
+</html>

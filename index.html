@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Will - Plataforma de Serviços para Alunos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/config.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="img/icon.png" alt="Ícone I Will" class="logo logo-to-toggle" id="header-logo">
+            <span class="logo-text">I Will</span>
+        </div>
+        
+        <nav class="nav desktop-nav">
+            <a href="#about-us-section" class="nav-btn">
+                <i class="fas fa-info-circle"></i> Sobre
+            </a>
+            <a href="ajuda.html" class="nav-btn">
+                <i class="fas fa-question-circle"></i> Ajuda
+            </a>
+            <div class="settings-menu-container">
+                <button class="settings-btn" id="settingsBtn" aria-label="Configurações">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <div class="settings-dropdown" id="settingsDropdown">
+                    <button id="darkModeToggle">🌙 Modo Escuro</button>
+                </div>
+            </div>
+        </nav>
+        
+        <button class="menu-btn" id="mobileMenuIcon" aria-label="Abrir Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#about-us-section" class="mobile-link"><i class="fas fa-info-circle"></i> Sobre</a>
+        <a href="ajuda.html" class="mobile-link"><i class="fas fa-question-circle"></i> Ajuda</a>
+        <div class="mobile-nav-divider"></div>
+        <button id="darkModeToggleMobile">🌙 Modo Escuro</button>
+        <div class="mobile-nav-divider"></div>
+       
+    </nav>
+
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Conectando talentos e oportunidades</h1>
+                <p class="hero-subtitle">
+                    A plataforma que une estudantes que oferecem serviços com quem precisa deles.
+                </p>
+                <div class="hero-buttons">
+                    <a href="login.html" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </a>
+                    <a href="registro.html" class="btn btn-secondary">
+                        <i class="fas fa-user-plus"></i> Cadastrar
+                    </a>
+                </div>
+            </div>
+            <div class="hero-interactive-area">
+                <div id="idea-bulb-container">
+                    <img src="img/Mask group.png" id="idea-bulb" alt="Lâmpada de ideia">
+                    <p id="idea-text">Sua ideia vale!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="section-header">
+                <h2 class="section-title">Por que escolher o I Will?</h2>
+                <p class="section-subtitle">Tudo o que você precisa em uma só plataforma.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3 class="feature-title">Ganhe Dinheiro</h3>
+                    <p class="feature-text">Ofereça seus serviços e habilidades para ganhar renda extra.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-search"></i></div>
+                    <h3 class="feature-title">Encontre Serviços</h3>
+                    <p class="feature-text">Contrate estudantes qualificados para te ajudar no que precisar.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="feature-title">Comunidade</h3>
+                    <p class="feature-text">Faça parte de uma rede de estudantes empreendedores.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about-us-section" class="about-us-section">
+            <div class="section-header">
+                <h2 class="section-title">Sobre o I Will</h2>
+                <p class="section-subtitle">Conheça um pouco mais sobre nossa plataforma.</p>
+            </div>
+
+            <div class="about-tabs-container">
+                <div class="about-tabs">
+                    <button class="about-tab-btn active" data-tab="quem-somos">
+                        <i class="fas fa-user-friends"></i> Quem Somos
+                    </button>
+                    <button class="about-tab-btn" data-tab="o-que-oferecemos">
+                        <i class="fas fa-rocket"></i> O Que Oferecemos
+                    </button>
+                    <button class="about-tab-btn" data-tab="nossa-missao">
+                        <i class="fas fa-bullseye"></i> Nossa Missão
+                    </button>
+                </div>
+
+                <div id="about-content-wrapper" class="about-content-wrapper visible">
+                    <div id="quem-somos" class="about-content-card active">
+                        <h3>Quem Somos</h3>
+                        <p>Somos um grupo de alunos da Etec que acredita no poder da colaboração e do empreendedorismo. Criamos o "I Will" com o objetivo de fortalecer nossa comunidade, permitindo que estudantes ofereçam seus talentos e desenvolvam habilidades práticas.</p>
+                    </div>
+
+                    <div id="o-que-oferecemos" class="about-content-card">
+                        <h3>O Que Oferecemos</h3>
+                        <p>O I Will é um espaço exclusivo para alunos da Etec anunciarem e encontrarem serviços como:</p>
+                        <ul class="about-list">
+                            <li><i class="fas fa-check-circle"></i> Aulas particulares e tutoria</li>
+                            <li><i class="fas fa-check-circle"></i> Design gráfico e edição de vídeos</li>
+                            <li><i class="fas fa-check-circle"></i> E muito mais!</li>
+                        </ul>
+                    </div>
+
+                    <div id="nossa-missao" class="about-content-card">
+                        <h3>Nossa Missão</h3>
+                        <p>Nossa missão é criar um ambiente dinâmico onde estudantes possam prosperar academicamente e profissionalmente. Queremos empoderar os alunos, dando-lhes as ferramentas para monetizar suas habilidades.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto para começar?</h2>
+                <p class="cta-text">Junte-se a centenas de estudantes que já estão usando o I Will.</p>
+                <a href="registro.html" class="btn btn-cta">
+                    <i class="fas fa-rocket"></i> Criar minha conta agora
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="img/icon.png" alt="Ícone I Will" class="footer-logo-img logo-to-toggle" id="footer-logo">
+                <span class="footer-logo-text">I Will</span>
+            </div>
+            <div class="footer-links">
+                <a href="#about-us-section" class="footer-link">Sobre</a>
+                <a href="ajuda.html" class="footer-link">Ajuda</a>
+                <a href="termos.html" class="footer-link">Termos</a>
+                <a href="privacidade.html" class="footer-link">Privacidade</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/_vmasscz/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 I Will - Plataforma de Serviços para Alunos da Etec. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="javascript/dark-mode-global.js"></script>
+    <script src="javascript/inicio.js"></script>
+</body>
+</html>

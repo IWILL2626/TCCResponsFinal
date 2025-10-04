@@ -1,0 +1,226 @@
+/* ================================================= */
+/* ================== MODO ESCURO ================== */
+/* ================================================= */
+body.dark-mode {
+    /* Paleta Principal */
+    --primary-color: #ff5252;
+    --primary-dark: #cc0000;
+    --primary-light: #4d0000;
+    
+    /* Tema Escuro */
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --light-gray: #2a2a2a;
+    --medium-gray: #3a3a3a;
+    --text-color: #f0f0f0;
+    --text-light: #a0a0a0;
+    --border-color: #3a3a3a;
+    --header-bg: rgba(20, 20, 20, 0.85);
+
+    /* Cores Genéricas */
+    --white: #fff;
+    --dark-gray: #444;
+    
+    /* Sombra e Transição */
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Regra geral para o corpo da página */
+body.dark-mode {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Regras para header e footer */
+body.dark-mode header {
+    background: var(--surface-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode footer {
+    background: #000;
+    color: var(--text-color);
+}
+
+
+/* =============================================================== */
+/* ====== ESTILOS PARA PÁGINAS DE LOGIN E REGISTRO (NOVO) ====== */
+/* =============================================================== */
+
+/* Card principal */
+body.dark-mode .login-card,
+body.dark-mode .register-card {
+    background-color: var(--surface-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Textos e links secundários */
+body.dark-mode .register-header p,
+body.dark-mode .login-options .link,
+body.dark-mode .login-link,
+body.dark-mode .login-link a:not(:hover),
+body.dark-mode .hint {
+    color: var(--text-light);
+}
+
+/* Inputs, selects e wrappers de senha */
+body.dark-mode .input-group input,
+body.dark-mode .input-group select {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    border-color: var(--medium-gray);
+}
+
+body.dark-mode .input-group input:focus,
+body.dark-mode .input-group select:focus {
+    background-color: var(--surface-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(255, 82, 82, 0.1);
+}
+
+body.dark-mode .toggle-password {
+    color: var(--text-light);
+}
+
+
+/* ======================================================= */
+/* ====== ESTILOS PARA PÁGINA DE VENDAS (vendas.css) ====== */
+/* ======================================================= */
+
+body.dark-mode .search-bar input,
+body.dark-mode .filter-options select {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    border-color: var(--medium-gray);
+}
+
+body.dark-mode .search-bar input:focus,
+body.dark-mode .filter-options select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(255, 82, 82, 0.1);
+}
+
+body.dark-mode .product-card {
+    background: var(--surface-color);
+    border-color: var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .product-card:hover {
+    box-shadow: var(--shadow);
+}
+
+body.dark-mode .product-meta {
+    border-top-color: var(--border-color);
+}
+
+body.dark-mode .modal-content {
+    background-color: var(--surface-color);
+}
+
+body.dark-mode .modal-seller-info {
+    border-top-color: var(--border-color);
+}
+
+body.dark-mode .modal-seller-info h3 {
+    color: var(--text-color);
+}
+
+body.dark-mode .seller-detail span {
+    color: var(--text-color);
+}
+
+body.dark-mode .btn-secondary {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+}
+
+body.dark-mode .btn-secondary:hover {
+    background-color: var(--medium-gray);
+}
+
+/* ===================================================== */
+/* ====== ESTILOS PARA PÁGINA DE PERFIL (perfil.css) ====== */
+/* ===================================================== */
+
+body.dark-mode .profile-container {
+    background: var(--surface-color);
+    box-shadow: var(--shadow);
+}
+
+body.dark-mode .user-email {
+    color: var(--text-light);
+}
+
+body.dark-mode .detail-card {
+    background: var(--light-gray);
+}
+
+body.dark-mode .detail-card h3 {
+    color: var(--text-light);
+}
+
+body.dark-mode .btn-back {
+    background: var(--light-gray);
+    color: var(--text-color);
+}
+
+body.dark-mode .btn-back:hover {
+    background: var(--medium-gray);
+}
+
+body.dark-mode .modal-close-btn {
+    color: var(--text-light);
+}
+
+body.dark-mode .input-group label {
+    color: var(--text-light);
+}
+
+body.dark-mode .input-group input {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    border-color: var(--medium-gray);
+}
+
+body.dark-mode .input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(255, 82, 82, 0.1);
+}
+
+body.dark-mode .btn-cancel {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+}
+
+body.dark-mode .btn-cancel:hover {
+    background-color: var(--medium-gray);
+}
+/* --- TEMA ESCURO --- */
+body.dark-mode .footer {
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+}
+
+body.dark-mode .footer-content {
+    border-bottom-color: var(--border-color);
+}
+
+body.dark-mode .footer-logo-text {
+    color: var(--primary-color); /* A cor primária do dark-mode já é clara */
+}
+
+body.dark-mode .footer-link,
+body.dark-mode .social-icon,
+body.dark-mode .footer-copyright {
+    color: var(--text-light);
+}
+
+body.dark-mode .footer-link:hover {
+    color: var(--white);
+    padding-left: 5px;
+}
+
+body.dark-mode .social-icon:hover {
+    color: var(--white);
+}

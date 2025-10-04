@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | i Will - Plataforma de Serviços para Alunos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/icon.png" alt="Ícone I Will" class="logo-to-toggle">
+        </div>
+        <nav>
+            <button class="btn" onclick="window.location.href='index.html'">Voltar</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="register-container">
+            <div class="register-card">
+                <div class="register-header">
+                    <img src="img/icon.png" alt="Ícone I Will" class="logo-img logo-to-toggle">
+                    <h1>Criar sua conta</h1>
+                    <p>Preencha os campos abaixo para se registrar</p>
+                </div>
+                
+                <form id="registerForm" class="register-form">
+                    
+                    <div class="profile-image-uploader">
+                        <label for="profileImageInput">
+                            <img id="imagePreview" src="img/avatar.png" alt="Pré-visualização do perfil" class="profile-image-preview">
+                            <span class="edit-icon"><i class="fas fa-camera"></i></span>
+                        </label>
+                        <input type="file" id="profileImageInput" accept="image/*" style="display: none;">
+                        <p>Foto de Perfil (Opcional)</p>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="nome">
+                                <i class="fas fa-user"></i> Nome completo
+                            </label>
+                            <input type="text" id="nome" placeholder="Seu nome completo" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="username">
+                                <i class="fas fa-at"></i> Nome de usuário
+                            </label>
+                            <input type="text" id="username" placeholder="nomeusuario" required>
+                            <small class="hint">Letras, números e hífens apenas</small>
+                            <small class="error-message" id="usernameError"></small>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="telefone">
+                                <i class="fas fa-phone"></i> Telefone
+                            </label>
+                            <input type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                            <small class="error-message" id="telefoneError"></small>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="turma">
+                                <i class="fas fa-users"></i> Turma
+                            </label>
+                            <select id="turma" required>
+                                <option value="">Selecione seu curso</option>
+                                <option value="Administração">Administração</option>
+                                <option value="Comércio Exterior">Comércio Exterior</option>
+                                <option value="Desenvolvimento de Sistemas">Desenvolvimento de Sistemas</option>
+                                <option value="Enfermagem">Enfermagem</option>
+                                <option value="Informatica Para a Internet">Informática Para Internet</option>
+                                <option value="Linguagens">Linguagens</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Recursos Humanos">Recursos Humanos</option>
+                                <option value="Segurança do Trabalho">Segurança do Trabalho</option>
+                                <option value="Serviços Jurídicos">Serviços Jurídicos</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> E-mail
+                            </label>
+                            <input type="email" id="email" placeholder="seu@email.com" required>
+                            <small class="error-message" id="emailError"></small>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="password">
+                                <i class="fas fa-lock"></i> Senha
+                            </label>
+                            <div class="password-wrapper">
+                                <input type="password" id="password" placeholder="Mínimo 6 caracteres" required>
+                                <button type="button" class="toggle-password" aria-label="Mostrar senha">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="error-message" id="passwordError"></small>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="confirmPassword">
+                                <i class="fas fa-lock"></i> Confirmar Senha
+                            </label>
+                            <div class="password-wrapper">
+                                <input type="password" id="confirmPassword" placeholder="Confirme sua senha" required>
+                                <button type="button" class="toggle-password" aria-label="Mostrar senha">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="error-message" id="confirmPasswordError"></small>
+                        </div>
+                    </div>
+                    
+                    <div id="firebaseError" class="error-message" style="display: none;"></div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-text">Criar conta</span>
+                        <i class="fas fa-user-plus btn-icon"></i>
+                    </button>
+                    
+                    <div class="login-link">
+                        Já tem uma conta? <a href="login.html">Faça login</a>
+                    </div>
+                </form>
+
+                <div id="emailVerification" class="verification-message" style="display: none; padding: 40px;">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <p><strong>Cadastro quase concluído!</strong><br>Enviamos um e-mail de verificação para você. Por favor, verifique sua caixa de entrada e clique no link para ativar sua conta. Você será redirecionado para aceitar nossos Termos de Uso.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 i Will - Plataforma de Serviços para Alunos da Etec</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <script src="javascript/dark-mode-global.js"></script>    
+    <script>
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAKTwMCe5sUPoZz5jwSYV1WiNmGjGxNxY8",
+            authDomain: "tcciwill.firebaseapp.com",
+            databaseURL: "https://tcciwill-default-rtdb.firebaseio.com",
+            projectId: "tcciwill",
+            storageBucket: "tcciwill.firebasestorage.app",
+            messagingSenderId: "35460029082",
+            appId: "1:35460029082:web:90ae52ac65ff355d8f9d23",
+            measurementId: "G-YHPBHZQJBW"
+        };
+
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // Máscara para telefone
+        $(document).ready(function() {
+            $('#telefone').inputmask({
+                mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                keepStatic: true
+            });
+        });
+
+        // Toggle password visibility
+        document.querySelectorAll('.toggle-password').forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.replace('fa-eye', 'fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.replace('fa-eye-slash', 'fa-eye');
+                }
+            });
+        });
+        
+        // ✅ LÓGICA DA IMAGEM DE PERFIL
+        const profileImageInput = document.getElementById('profileImageInput');
+        const imagePreview = document.getElementById('imagePreview');
+        let profileImageBase64 = ""; // Variável para armazenar a imagem
+
+        profileImageInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    imagePreview.src = e.target.result;
+                    profileImageBase64 = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Validação do formulário
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearErrors();
+            
+            const nome = document.getElementById('nome').value;
+            const username = document.getElementById('username').value;
+            const telefone = document.getElementById('telefone').value;
+            const turma = document.getElementById('turma').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            let isValid = true;
+            
+            if (!/^[a-zA-Z0-9-]+$/.test(username)) {
+                document.getElementById('usernameError').textContent = 'Use apenas letras, números e hífens.';
+                isValid = false;
+            }
+            if (!/^\(\d{2}\) \d{4,5}-\d{4}$/.test(telefone)) {
+                document.getElementById('telefoneError').textContent = 'Formato inválido. Use (XX) XXXX-XXXX.';
+                isValid = false;
+            }
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'A senha deve ter pelo menos 6 caracteres.';
+                isValid = false;
+            }
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'As senhas não coincidem.';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                try {
+                    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                    await userCredential.user.sendEmailVerification();
+                    
+                    // ✅ SALVA OS DADOS NO FIRESTORE COM A IMAGEM
+                    await db.collection("vendedores").doc(userCredential.user.uid).set({
+                        nome,
+                        username,
+                        telefone,
+                        turma,
+                        email,
+                        createdAt: new Date(),
+                        emailVerified: false,
+                        termsAccepted: false,
+                        imagemPerfil: profileImageBase64 || "" // Salva a imagem ou uma string vazia
+                    });
+                    
+                    document.getElementById('registerForm').style.display = 'none';
+                    document.getElementById('emailVerification').style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = 'termos.html';
+                    }, 3000);
+                    
+                } catch (error) {
+                    const errorMessage = document.getElementById('firebaseError');
+                    errorMessage.style.display = 'block';
+                    switch (error.code) {
+                        case 'auth/email-already-in-use': errorMessage.textContent = 'Este e-mail já está em uso.'; break;
+                        case 'auth/weak-password': errorMessage.textContent = 'A senha deve ter pelo menos 6 caracteres.'; break;
+                        case 'auth/invalid-email': errorMessage.textContent = 'E-mail inválido.'; break;
+                        default: errorMessage.textContent = 'Ocorreu um erro. Tente novamente.';
+                    }
+                }
+            }
+        });
+        
+        function clearErrors() {
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            document.getElementById('firebaseError').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

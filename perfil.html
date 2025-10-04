@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil | I Will</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <label for="profileImageInput" class="profile-pic-container">
+                <img src="img/avatar.png" alt="Foto do perfil" class="profile-pic" id="profilePic">
+                <div class="profile-pic-edit-overlay">
+                    <i class="fas fa-camera"></i>
+                </div>
+            </label>
+            <input type="file" id="profileImageInput" accept="image/*" style="display: none;">
+            
+            <h1 id="userName">Carregando...</h1>
+            <p class="user-email" id="userEmail">carregando@email.com</p>
+        </div>
+
+        <div class="profile-details">
+            <div class="detail-card">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h3>Telefone</h3>
+                    <p id="userPhone">(00) 00000-0000</p>
+                </div>
+            </div>
+
+            <div class="detail-card">
+                <i class="fas fa-users"></i>
+                <div>
+                    <h3>Turma</h3>
+                    <p id="userClass">Carregando...</p>
+                </div>
+            </div>
+
+            <div class="detail-card">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>E-mail</h3>
+                    <p id="userEmail2">carregando@email.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+            <button class="btn-action btn-edit" id="editProfileBtn">
+                <i class="fas fa-pencil-alt"></i> Editar Perfil
+            </button>
+            <button class="btn-action btn-back" onclick="window.location.href='vendas.html'">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+            <h2>Editar Perfil</h2>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label for="editName">Nome</label>
+                    <input type="text" id="editName" placeholder="Seu nome completo">
+                </div>
+                <div class="input-group">
+                    <label for="editPhone">Telefone</label>
+                    <input type="tel" id="editPhone" placeholder="(00) 00000-0000">
+                </div>
+                <div class="input-group">
+                    <label for="editClass">Turma</label>
+                    <input type="text" id="editClass" placeholder="Sua turma ou curso">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-action btn-save" id="saveChangesBtn">
+                        <i class="fas fa-save"></i> Salvar
+                    </button>
+                    <button type="button" class="btn-action btn-cancel" id="cancelBtn">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="javascript/utils.js"></script> 
+    <script src="javascript/perfil.js"></script>
+    <script src="javascript/dark-mode-global.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos e Regras - i Will</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/termos.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+
+    <main class="terms-container">
+        <div class="terms-card">
+            <header class="terms-header">
+                <img src="img/icon.png" alt="Ícone I Will" class="logo-img logo-to-toggle">                <h1>Termos de Uso e Regras</h1>
+                <p>Por favor, leia e aceite os termos antes de continuar.</p>
+            </header>
+            
+            <section class="terms-content">
+                <h2>1. Introdução</h2>
+                <p>Bem-vindo à plataforma i Will. Ao usar nossos serviços, você concorda com estes termos. Estes termos regem o seu acesso e uso da plataforma, incluindo quaisquer conteúdos, funcionalidades e serviços oferecidos.</p>
+                
+                <h2>2. Uso da Conta</h2>
+                <p>Você é responsável por manter a confidencialidade de sua conta e senha. Você concorda em aceitar a responsabilidade por todas as atividades que ocorram sob sua conta.</p>
+                
+                <h2>3. Regras de Conduta</h2>
+                <p>É estritamente proibido usar a plataforma para fins ilegais, difamatórios, ou que infrinjam os direitos de terceiros. Todas as negociações de produtos devem ser realizadas com honestidade e transparência.</p>
+
+                <h2>4. Produtos e Transações</h2>
+                <p>A plataforma i Will atua como intermediária. Não nos responsabilizamos pela qualidade, segurança ou legalidade dos produtos anunciados. Disputas devem ser resolvidas diretamente entre comprador e vendedor.</p>
+
+                </section>
+
+            <footer class="terms-footer">
+                <div class="consent-group">
+                    <input type="checkbox" id="termsCheckbox">
+                    <label for="termsCheckbox">Eu li e concordo com os Termos de Uso e Regras da plataforma.</label>
+                </div>
+                <button id="acceptBtn" class="btn btn-primary" disabled>
+                    Aceitar e Continuar
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
+            </footer>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="javascript/dark-mode-global.js"></script>
+    <script>
+        // Configuração do Firebase (a mesma dos outros arquivos)
+        const firebaseConfig = {
+            apiKey: "AIzaSyAKTwMCe5sUPoZz5jwSYV1WiNmGjGxNxY8",
+            authDomain: "tcciwill.firebaseapp.com",
+            databaseURL: "https://tcciwill-default-rtdb.firebaseio.com",
+            projectId: "tcciwill",
+            storageBucket: "tcciwill.firebasestorage.app",
+            messagingSenderId: "35460029082",
+            appId: "1:35460029082:web:90ae52ac65ff355d8f9d23",
+            measurementId: "G-YHPBHZQJBW"
+        };
+
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        const checkbox = document.getElementById('termsCheckbox');
+        const acceptBtn = document.getElementById('acceptBtn');
+
+        // Habilita o botão apenas quando o checkbox for marcado
+        checkbox.addEventListener('change', () => {
+            acceptBtn.disabled = !checkbox.checked;
+        });
+
+        // Lógica para aceitar os termos
+        acceptBtn.addEventListener('click', async () => {
+            const user = auth.currentUser;
+
+            if (user) {
+                acceptBtn.disabled = true;
+                acceptBtn.textContent = "Salvando...";
+
+                try {
+                    // Pega o documento do usuário na coleção 'vendedores' e atualiza
+                    const userRef = db.collection('vendedores').doc(user.uid);
+                    await userRef.update({
+                        termsAccepted: true,
+                        termsAcceptedAt: new Date() // Salva a data e hora da aceitação
+                    });
+
+                    // Redireciona para a página principal do site
+                    window.location.href = 'vendas.html'; // Mude para a sua página principal
+
+                } catch (error) {
+                    console.error("Erro ao salvar a aceitação dos termos:", error);
+                    alert("Ocorreu um erro. Por favor, tente novamente.");
+                    acceptBtn.disabled = false;
+                    acceptBtn.textContent = "Aceitar e Continuar";
+                }
+            } else {
+                 // Se não houver usuário logado, envia para a página de login
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Proteção da página: verifica se o usuário está logado
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

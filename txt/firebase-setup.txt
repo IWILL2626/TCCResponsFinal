@@ -1,0 +1,30 @@
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+  import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAKTwMCe5sUPoZz5jwSYV1WiNmGjGxNxY8",
+    authDomain: "tcciwill.firebaseapp.com",
+    databaseURL: "https://tcciwill-default-rtdb.firebaseio.com",
+    projectId: "tcciwill",
+    storageBucket: "tcciwill.appspot.com",
+    messagingSenderId: "35460029082",
+    appId: "1:35460029082:web:2b0f014e6df1ffe58f9d23",
+    measurementId: "G-9T1Z90PPRG"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const database = getDatabase(app);
+
+  window.firebaseAuth = auth;
+  window.firebaseDatabase = database;
+  window.firebaseRef = ref;
+  window.firebasePush = push;
+  window.firebaseOnValue = onValue;
+  window.firebaseSignOut = signOut;
+  window.firebaseOnAuthStateChanged = onAuthStateChanged;
+  window.firebaseCreateUserWithEmailAndPassword = createUserWithEmailAndPassword;
+  window.firebaseSignInWithEmailAndPassword = signInWithEmailAndPassword;
+</script>

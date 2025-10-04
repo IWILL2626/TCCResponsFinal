@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Will - Página de Vendas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/vendas.css">
+    <link rel="stylesheet" href="css/config.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/icon.png" alt="Ícone I Will" class="logo-to-toggle">
+            <span>I Will</span>
+        </div>
+        
+        <nav class="main-nav">
+            <button class="btn btn-primary" onclick="window.location.href='cadProduto.html'">
+                <i class="fas fa-plus-circle"></i> Novo Serviço
+            </button>
+            <button id="logoutBtnNav" class="btn btn-secondary">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </button>
+            <div class="settings-menu-container">
+                <button class="settings-btn" id="settingsBtn" aria-label="Configurações">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <div class="settings-dropdown" id="settingsDropdown">
+                    <button id="darkModeToggle">🌙 Modo Escuro</button>
+                    <div class="divider"></div>
+                    
+                    <a href="meus-servicos.html" class="dropdown-link">
+                        <i class="fas fa-briefcase"></i> Meus Serviços
+                    </a>
+                    
+                    <a href="perfil.html" class="dropdown-link">
+                        <i class="fas fa-user"></i> Perfil
+                    </a>
+                    <a href="index.html" class="dropdown-link">
+                        <i class="fas fa-home"></i> Início
+                    </a>
+                    <a href="ajuda.html" class="dropdown-link">
+                        <i class="fas fa-question-circle"></i> Ajuda
+                    </a>
+
+                    <div id="adminLinkContainer" style="display: none;">
+                        <div class="divider"></div>
+                        <a href="admin.html" class="dropdown-link">
+                            <i class="fas fa-shield-halved"></i> Painel Admin
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        <button class="mobile-menu-icon" id="mobileMenuIcon" aria-label="Abrir menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="btn btn-primary" onclick="window.location.href='cadProduto.html'">
+            <i class="fas fa-plus-circle"></i> Novo Serviço
+        </button>
+        <a href="perfil.html" class="mobile-link">
+            <i class="fas fa-user"></i> Perfil
+        </a>
+        <a href="index.html" class="mobile-link">
+            <i class="fas fa-home"></i> Início
+        </a>
+        <a href="ajuda.html" class="mobile-link">
+            <i class="fas fa-question-circle"></i> Ajuda
+        </a>
+
+        <div id="adminLinkMobileContainer" style="display: none;">
+             <a href="admin.html" class="mobile-link">
+                <i class="fas fa-shield-halved"></i> Painel Admin
+            </a>
+         </div>
+
+        <div class="mobile-nav-divider"></div>
+        <button id="darkModeToggleMobile">🌙 Modo Escuro</button>
+        <button id="logoutBtnMobile" class="btn btn-secondary">
+            <i class="fas fa-sign-out-alt"></i> Sair
+        </button>
+    </nav>
+
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Transforme seu talento em renda extra!</h2>
+                <p>Conecte-se com oportunidades e mostre suas habilidades para a comunidade</p>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Pesquise um serviço..." id="searchInput">
+                </div>
+                <div class="filter-options">
+                    <select id="categoryFilter">
+                        <option value="">Todas as categorias</option>
+                    </select>
+                    <select id="ratingFilter">
+                        <option value="">Qualquer avaliação</option>
+                        <option value="4">4+ estrelas</option>
+                        <option value="3">3+ estrelas</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p>Carregando serviços...</p>
+            </div>
+            
+            <div class="product-grid" id="productGrid">
+                </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="img/icon.png" alt="Ícone I Will" class="footer-logo-img logo-to-toggle" id="footer-logo">
+                <span class="footer-logo-text">I Will</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html#about-us-section" class="footer-link">Sobre</a>
+                <a href="ajuda.html" class="footer-link">Ajuda</a>
+                <a href="termos.html" class="footer-link">Termos</a>
+                <a href="privacidade.html" class="footer-link">Privacidade</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/_vmasscz/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 I Will - Plataforma de Serviços para Alunos da Etec. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modalCloseBtn" class="modal-close-btn">&times;</button>
+            <div id="modalLoader" class="loader" style="display: none;">
+                <div class="spinner"></div>
+            </div>
+            <div id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <script src="javascript/dark-mode-global.js"></script>
+    <script src="javascript/vendas.js"></script>
+</body>
+</html>
