@@ -168,12 +168,11 @@ body.dark-mode .header {
     padding: 8rem 5% 5rem;
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--background-color) 70%);
     gap: 2rem;
-    position: relative; /* Necessário para o posicionamento da lâmpada */
+    position: relative; /* Mantém a posição relativa */
 }
 body.dark-mode .hero {
     background: linear-gradient(135deg, rgba(160, 0, 0, 0.1) 0%, var(--background-color) 70%);
 }
-
 
 .hero-content {
     flex: 1;
@@ -250,42 +249,39 @@ body.dark-mode .btn-primary:hover {
 /* ============ ÁREA INTERATIVA HERO ================ */
 /* ================================================= */
 .hero-interactive-area {
+    /* CORREÇÃO PRINCIPAL */
     position: absolute;
     top: 0;
     right: 0;
-    width: 50%;
+    width: 45%; /* Define a largura da área da lâmpada */
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Alinha a lâmpada à esquerda DENTRO desta área */
 }
 
 #idea-bulb-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    text-align: center;
     position: relative;
-    width: 100%;
+    width: auto;
+    height: auto;
 }
 
 #idea-bulb {
-    width: 300px;
+    width: 350px; /* Aumenta um pouco o tamanho para o efeito de corte */
+    height: auto;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
-    transform: translateX(40%); /* Empurra a imagem para a direita, para fora da sua caixa */
+    /* Remove o transform antigo */
 }
 
 #idea-bulb.glow {
     filter: drop-shadow(0 0 50px #AE0C0D);
-    transform: scale(1.05) translateX(40%); /* Mantém a posição ao animar */
+    transform: scale(1.05);
 }
 
 #idea-text {
     position: absolute;
-    bottom: 25%;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
