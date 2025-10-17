@@ -163,22 +163,20 @@ body.dark-mode .header {
 /* ================================================= */
 .hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    justify-content: center;
+    text-align: center;
+    min-height: 90vh;
     padding: 8rem 5% 5rem;
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--background-color) 70%);
-    gap: 2rem;
-    position: relative; /* Mantém a posição relativa */
 }
 body.dark-mode .hero {
     background: linear-gradient(135deg, rgba(160, 0, 0, 0.1) 0%, var(--background-color) 70%);
 }
 
 .hero-content {
-    flex: 1;
-    animation: slideInLeft 0.8s ease-out;
-    min-width: 50%;
-    z-index: 10;
+    animation: fadeIn 0.8s ease-out;
 }
 
 .hero-title {
@@ -194,10 +192,13 @@ body.dark-mode .hero {
     color: var(--text-light);
     margin-bottom: 2.5rem;
     max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
 }
@@ -249,53 +250,8 @@ body.dark-mode .btn-primary:hover {
 /* ============ ÁREA INTERATIVA HERO ================ */
 /* ================================================= */
 .hero-interactive-area {
-    /* CORREÇÃO PRINCIPAL */
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45%; /* Define a largura da área da lâmpada */
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Alinha a lâmpada à esquerda DENTRO desta área */
+    display: none; /* Remove completamente a área da lâmpada */
 }
-
-#idea-bulb-container {
-    position: relative;
-    width: auto;
-    height: auto;
-}
-
-#idea-bulb {
-    width: 350px; /* Aumenta um pouco o tamanho para o efeito de corte */
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    /* Remove o transform antigo */
-}
-
-#idea-bulb.glow {
-    filter: drop-shadow(0 0 50px #AE0C0D);
-    transform: scale(1.05);
-}
-
-#idea-text {
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    font-weight: 400;
-    color: var(--text-light);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-#idea-text.visible {
-    opacity: 1;
-}
-
 
 /* ================================================= */
 /* ================ FEATURES SECTION =============== */
@@ -655,24 +611,6 @@ body.dark-mode .social-icon:hover {
     .menu-btn {
         display: block;
     }
-    .hero-content {
-        flex: 1 1 100%;
-        min-width: 100%;
-        padding-right: 0;
-        margin-bottom: 3rem;
-        text-align: center;
-    }
-    .hero-buttons {
-        justify-content: center;
-    }
-    .hero-interactive-area {
-        height: 350px;
-        width: 100%;
-        max-width: 450px;
-        position: absolute;
-        opacity: 0.2;
-        z-index: 1;
-    }
 }
 
 @media (max-width: 768px) {
@@ -756,14 +694,9 @@ body.dark-mode .social-icon:hover {
         visibility: visible;
     }
     
-    .hero-interactive-area {
-        display: none;
-    }
     .hero {
         min-height: 80vh;
         padding-top: 8rem;
-        text-align: center;
-        flex-direction: column;
     }
     
     .footer-content {

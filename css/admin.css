@@ -1,13 +1,13 @@
-/* css/admin.css - VERSÃO 3.0: Vermelho, Mais Animações e Detalhes */
+/* css/admin.css */
 
-/* 1. Variáveis de Cor e Estilo (AGORA COM VERMELHO) */
+/* 1. Variáveis de Cor e Estilo */
 :root {
-    --primary-color: #E74C3C; /* Vermelho vibrante principal */
-    --primary-hover: #C0392B; /* Vermelho mais escuro para hover */
-    --danger-color: #D62C2C;  /* Um vermelho para exclusão, pode ser o mesmo ou ligeiramente diferente */
+    --primary-color: #a00;
+    --primary-hover: #800;
+    --danger-color: #D62C2C;
     --danger-hover: #A92323;
-    --surface-color: #ffffff; /* Fundo de cards/tabelas */
-    --background-color: #f4f6f8; /* Fundo geral da página */
+    --surface-color: #ffffff;
+    --background-color: #f4f6f8;
     --text-color: #333333;
     --text-muted: #6c757d;
     --border-color: #e0e0e0;
@@ -16,20 +16,17 @@
     --animation-speed: 0.3s;
 }
 
-/* Estilos para o modo escuro (certifique-se de que estão aqui se você os tiver no seu projeto) */
-/* Exemplo de como seria o dark mode com as novas cores */
+/* Estilos para o modo escuro (se você usar) */
 body.dark-mode {
     --surface-color: #2c2f33;
     --background-color: #23272a;
     --text-color: #ffffff;
     --border-color: #4a4a4a;
     --header-bg-color: #2c2f33;
-    /* Ajuste cores primárias se quiser um vermelho diferente no dark mode */
-    --primary-color: #FF5A5A; /* Um vermelho mais claro para contraste no dark mode */
+    --primary-color: #FF5A5A;
     --primary-hover: #E84D4D;
     --danger-color: #E74C3C;
 }
-
 
 /* 2. Estilos Gerais */
 body {
@@ -61,8 +58,8 @@ body {
 .header-content h1 {
     margin: 0;
     font-size: 1.5rem;
-    color: var(--primary-color); /* Título agora em vermelho */
-    transition: color var(--animation-speed); /* Animação na mudança de cor */
+    color: var(--primary-color);
+    transition: color var(--animation-speed);
 }
 
 .header-content h1 .fa-shield-halved {
@@ -78,7 +75,7 @@ body {
     cursor: pointer;
     border: none;
     font-size: 0.9rem;
-    transition: all var(--animation-speed) ease; /* Velocidade da animação */
+    transition: all var(--animation-speed) ease;
 }
 
 .nav-link {
@@ -90,7 +87,7 @@ body {
 .nav-link:hover {
     background-color: var(--primary-color);
     color: #fff;
-    transform: translateY(-2px); /* Pequena animação no hover */
+    transform: translateY(-2px);
 }
 
 .btn-logout {
@@ -100,26 +97,34 @@ body {
 
 .btn-logout:hover {
     background-color: var(--primary-hover);
-    transform: translateY(-2px); /* Pequena animação no hover */
+    transform: translateY(-2px);
 }
 
 /* 4. Conteúdo Principal e Título da Página */
 .admin-container {
     max-width: 1400px;
-    margin: 2rem auto;
-    padding: 0 5%;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+.admin-section {
+    margin-bottom: 4rem; /* Espaçamento entre as seções */
 }
 
 .page-title {
     text-align: center;
     margin-bottom: 2.5rem;
-    animation: fadeInDown var(--animation-speed) ease-out; /* Animação de entrada */
+    animation: fadeInDown var(--animation-speed) ease-out;
 }
 .page-title h2 {
     font-size: 2rem;
     font-weight: 600;
     margin: 0 0 0.5rem;
-    color: var(--primary-color); /* Título em vermelho */
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 .page-title p {
     font-size: 1.1rem;
@@ -144,33 +149,32 @@ body {
     transform: translateY(20px);
 }
 
-/* Animação de entrada para os cards (mantida) */
 .admin-card.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 .admin-card:hover {
-    transform: translateY(-8px) scale(1.02); /* Animação mais pronunciada no hover */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Sombra mais intensa no hover */
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .card-image-container {
     width: 100%;
     height: 200px;
     background-color: #eee;
-    overflow: hidden; /* Garante que a imagem não saia do container */
+    overflow: hidden;
 }
 
 .card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease; /* Animação para a imagem no hover */
+    transition: transform 0.5s ease;
 }
 
 .admin-card:hover .card-image {
-    transform: scale(1.05); /* Zoom suave na imagem ao passar o mouse */
+    transform: scale(1.05);
 }
 
 .card-content {
@@ -184,7 +188,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--text-color); /* Título dos cards em cor de texto normal */
+    color: var(--text-color);
 }
 
 .card-seller-info {
@@ -197,7 +201,7 @@ body {
 
 .card-seller-info .fa-user-circle {
     margin-right: 8px;
-    color: var(--primary-color); /* Ícone do vendedor em vermelho */
+    color: var(--primary-color);
 }
 
 /* 6. Estilos do Modal */
@@ -252,14 +256,17 @@ body {
 }
 .modal-close-btn:hover {
     color: var(--danger-color);
-    transform: rotate(90deg); /* Animação de rotação no botão de fechar */
+    transform: rotate(90deg);
 }
 
 #modalBody {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
+    grid-template-columns: 1fr; /* Padrão de uma coluna para o modal */
+    gap: 1.5rem;
+}
+
+.modal-body-grid {
+    grid-template-columns: 1fr 1.5fr; /* Duas colunas para o modal de serviço */
 }
 
 .modal-image {
@@ -270,7 +277,7 @@ body {
 .modal-title {
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--primary-color); /* Título do modal em vermelho */
+    color: var(--primary-color);
     margin: 0;
 }
 
@@ -293,7 +300,7 @@ body {
 }
 
 .btn-delete {
-    background-color: var(--danger-color); /* Botão de delete em vermelho forte */
+    background-color: var(--danger-color);
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
@@ -305,7 +312,7 @@ body {
 }
 .btn-delete:hover {
     background-color: var(--danger-hover);
-    transform: translateY(-2px); /* Pequena animação no hover */
+    transform: translateY(-2px);
 }
 
 /* 7. Loader/Spinner */
@@ -324,7 +331,7 @@ body {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border-left-color: var(--primary-color); /* Spinner em vermelho */
+    border-left-color: var(--primary-color);
     animation: spin 1s ease infinite;
     margin-bottom: 1rem;
 }
@@ -334,14 +341,80 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Nova Animação para Título da Página */
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 8. NOVOS ESTILOS PARA TABELA DE DENÚNCIAS */
+.table-container {
+    background-color: var(--surface-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table thead {
+    background-color: var(--background-color);
+}
+
+.admin-table th {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+    background-color: var(--background-color);
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+}
+
+.status-pendente { background-color: #f0ad4e; }
+.status-resolvido { background-color: #5cb85c; }
+
+.table-actions .action-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    margin: 2px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.table-actions .action-btn:hover { transform: scale(1.05); }
+
+.btn-view-details { background-color: #0275d8; }
+.btn-resolve { background-color: #5cb85c; }
+
+.admin-table a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: 500;
 }
